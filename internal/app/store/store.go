@@ -25,9 +25,12 @@ func (s *Store) Open() error {
 	if err := db.Ping(); err != nil {
 		return err
 	}
+
+	s.db = db
+
 	return nil
 }
 
 func (s *Store) Close() {
-
+	s.db.Close()
 }
